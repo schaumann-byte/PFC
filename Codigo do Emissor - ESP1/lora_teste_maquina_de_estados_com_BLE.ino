@@ -95,11 +95,9 @@ void setup() {
 }
 
 void loop() {
-  //Finção que recebe o packet do LoRa
+  //Função que recebe o packet do LoRa
   onReceive(LoRa.parsePacket());
   yield();
-  /*Serial.print("Dado recebido: ");
-  Serial.println(ack);*/
 
   //Função que gere as notificações do BLE
   BLE_loop();
@@ -125,12 +123,6 @@ void loop() {
           ack = "";
 
           estado = ESTADO_AGUARDA_ACK;
-
-          //teste sem ack
-          
-           //pilha_dados.resetData();
-           //estado = ESTADO_ENVIO;
-           
         }
         break;
       }
