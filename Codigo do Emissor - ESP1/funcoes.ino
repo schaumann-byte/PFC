@@ -1,9 +1,3 @@
-// Funcao que salva o dado numa queue
-void salva_dado(int dado)
-{
-  pilha_dados.push(dado);
-}
-
 // Funcao que retira o dado da queue
 int retira_dado()
 {
