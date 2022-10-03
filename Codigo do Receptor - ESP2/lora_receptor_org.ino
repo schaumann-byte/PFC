@@ -20,8 +20,8 @@ int BPM_data::BPM[max_datum_perMessage];
 BPM_data HearthMessage_decode(String BPM_str);
 
 /*Put your SSID & Password*/
-const char* ssid = "WIFIME_2G";  // Enter SSID here
-const char* password = "1234@abcd";  //Enter Password here
+const char* ssid = "POCO F3";  // Enter SSID here
+const char* password = "01020304";  //Enter Password here
 
 //WebServer server(80);
 
@@ -64,18 +64,21 @@ void setup() {
 
 void loop() {
   int packetSize = LoRa.parsePacket(); // se retorno diferente de 0 então tem uma mensagem disponivel
+  yield();
   if (packetSize)
   {
     Usuario * ptr;
     message_pack incoming_message;
-    incoming_message = onReceive(localAddress, packetSize);
+    incoming_message = onReceive(localAddress);
+    Serial.println("Mensagem recebida de " +  String(incoming_message.sender));
+    Serial.println(incoming_message.validade); 
     if (incoming_message.validade != 0) //se a mensagem for valida
     {
       ptr = Usuario::findUsuario(incoming_message.sender);
       if (ptr == NULL) //se eu não achar o ID eu crio um novo usuário
       {
         ptr = new Usuario(incoming_message.sender);
-
+        Serial.println("Criação de novo usário: " + String(ptr->identifier)); 
         if (ptr == NULL) //alocação de memória falhou
         {
           Serial.println("Memória do ESP Estourada. Reiniciando em 3 segundos.");

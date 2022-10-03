@@ -18,7 +18,7 @@ String criar_pagina(int qtd_sensores, int * ptr) {
 
 void handle_OnConnect() {
   String page = "";
-  page = "<h1>Sensor Cinta Cardiaca para WebServer</h1><h1>BPM:</h1> <h1 id=\"data\">""</h1>\r\n";
+  page = "<h1>Sensor to Node MCU Web Server</h1><h1>BPM:</h1> <h1 id=\"data\">""</h1>\r\n";
   page += "<script>\r\n";
   page += "var x = setInterval(function() {loadData(\"data.txt\",updateData)}, 1000);\r\n";
   page += "function loadData(url, callback){\r\n";

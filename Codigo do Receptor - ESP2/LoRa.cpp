@@ -1,7 +1,7 @@
 #include "LoRa.h"
 
 // Funcao para receber mensagem
-message_pack onReceive(byte localAddress, int packetSize)
+message_pack onReceive(byte localAddress)
 {
   message_pack incoming_data;
  
@@ -41,7 +41,8 @@ message_pack onReceive(byte localAddress, int packetSize)
 void envia_dado(byte remetente,byte destinatario, String outgoing)
 {
   static int msgCount=0;
-  LoRa.beginPacket();                   // Inicia o pacote da mensagem
+  while (LoRa.beginPacket() == 0) {delay(10);};
+  //LoRa.beginPacket();                   // Inicia o pacote da mensagem
   LoRa.write(destinatario);              // Adiciona o endereco de destino
   LoRa.write(remetente);             // Adiciona o endereco do remetente
   LoRa.write(msgCount);                 // Contador da mensagem

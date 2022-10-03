@@ -4,7 +4,7 @@
 class Usuario
 {  
     private:
-    int BPM[max_data_bpm]={0};
+    //int BPM[max_data_bpm]={0};
     static Usuario *head;
     static Usuario *tail;
     Usuario *prox;
@@ -22,7 +22,7 @@ class Usuario
     static int qtd_obj;
     //procura se há o usuário com o id fornecido. Se achar retorna o endereço, caso não retorna NULL
     static Usuario* findUsuario(byte id);
-
+    int BPM[max_data_bpm]={0}; // so pra teste
     void setBPM(int qtd, int* ptr);
     static int * allUsers_data_for_HTML();
 

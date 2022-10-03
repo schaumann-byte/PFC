@@ -12,7 +12,7 @@ struct message_pack { //struct que serve para organizar os dados recebidos
 typedef struct message_pack message_pack;
 
 // Funcao para receber mensagem
-message_pack onReceive(byte localAddress, int packetSize);
+message_pack onReceive(byte localAddress);
 
 
 void envia_dado(byte remetente,byte destinatario, String outgoing);

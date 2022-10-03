@@ -18,7 +18,8 @@
       pos_firstBPM = 0;
       pos_lastBPM = -1;
       qtd_BPM = 0;
-      prox = NULL;  
+      prox = NULL; 
+      Serial.println("Obj:" + String(qtd_obj) +  "criado"); 
     }
     
     // destrutor
